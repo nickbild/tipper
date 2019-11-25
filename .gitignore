@@ -1,4 +1,5 @@
 .DS_Store
 image_count.txt
 img/
-
+data/
+homer_*.model

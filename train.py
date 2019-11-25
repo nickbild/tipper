@@ -8,7 +8,7 @@ from torch.autograd import Variable
 
 
 img_width = 640
-img_height = 980
+img_height = 960
 class_count = 2
 
 
@@ -48,7 +48,8 @@ class Net(nn.Module):
 
         self.pool3 = nn.MaxPool2d(kernel_size=2)
 
-        self.fc1 = nn.Linear(in_features=24*18*18, out_features=128)
+        # 24 * (640/2/2/2/2) * (960/2/2/2/2)
+        self.fc1 = nn.Linear(in_features=24*40*60, out_features=128)
         self.relu9 = nn.ReLU()
 
         self.dropout2 = nn.Dropout(0.3)
@@ -88,7 +89,7 @@ class Net(nn.Module):
 
         output = self.pool3(output)
 
-        output = output.view(-1, 24*18*18)
+        output = output.view(-1, 24*40*60)
 
         output = self.fc1(output)
         output = self.relu9(output)
