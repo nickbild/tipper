@@ -14,8 +14,8 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(solenoid_pin, GPIO.OUT, initial=GPIO.LOW)
 
 cap = cv2.VideoCapture(0)
-cap.set(3, 1280)
-cap.set(4, 720)
+cap.set(3, 640)
+cap.set(4, 480)
 
 # "Warm up" the camera.
 ret, img = cap.read()
@@ -25,13 +25,13 @@ time.sleep(5)
 print("Throwing pitch...")
 GPIO.output(solenoid_pin, GPIO.HIGH)
 
-for i in range(2):
-    ret, img = cap.read()
-    cv2.imwrite("img/pitch_{}_{}.jpg".format(pitch_number, i), img)
+ret, img1 = cap.read()
+ret, img2 = cap.read()
+img = np.concatenate((img1, img2), axis=0)
+cv2.imwrite("img/pitch_{}.jpg".format(pitch_number), img)
 
 GPIO.output(solenoid_pin, GPIO.LOW)
 GPIO.cleanup()
 
 pitch_number += 1
 open("image_count.txt", "w").write(str(pitch_number))
-
