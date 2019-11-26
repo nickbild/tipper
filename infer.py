@@ -1,3 +1,4 @@
+import RPi.GPIO as GPIO
 import torch
 from torchvision.transforms import transforms
 import numpy as np
@@ -13,6 +14,10 @@ img_width = 640
 img_height = 960
 trained_model = "homer_0_2-1.model"
 num_classes = 2
+
+solenoid_pin = 23 # Pin #16
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(solenoid_pin, GPIO.OUT, initial=GPIO.LOW)
 
 
 # Load the saved model.
@@ -40,7 +45,7 @@ def predict_image_class(image):
 
     # Predict the class of the image.
     output = model(input)
-    print(output)
+    #print(output)
 
     index = output.data.numpy().argmax()
     score = output[0, index].item()
@@ -53,24 +58,29 @@ def main():
     cap.set(3, 640)
     cap.set(4, 480)
     # Warm up camera.
+    print("5 seconds...")
+    ret, img1 = cap.read()
     time.sleep(5)
 
     if cap.isOpened():
-        while True:
-            ret, img1 = cap.read()
-            ret, img2 = cap.read()
-            img_in = np.concatenate((img1, img2), axis=0)
+        print("Throwing pitch...")
+        GPIO.output(solenoid_pin, GPIO.HIGH)
 
-            # cv2.imwrite("out.jpg", img_in)
-            # img = Image.open('out.jpg')
-            # index, score = predict_image_class(img)
+        ret, img1 = cap.read()
+        ret, img2 = cap.read()
+        img = np.concatenate((img1, img2), axis=0)
+        #cv2.imwrite("img/pitch_{}.jpg".format(pitch_number), img)
 
-            index, score = predict_image_class(img_in)
+        index, score = predict_image_class(img)
 
-            print("Class: ", index)
-            print("Score: ", score)
+        print("Class: ", index)
+        print("Score: ", score)
+
+        # TODO: Light LED based on class/score for several seconds.  R unless sufficient strike score.
 
         cap.release()
+        GPIO.output(solenoid_pin, GPIO.LOW)
+        GPIO.cleanup()
     else:
         print('Unable to open camera.')
 
