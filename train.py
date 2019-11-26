@@ -219,7 +219,7 @@ def adjust_learning_rate(epoch):
 
 
 def save_models(epoch, train_acc, test_acc):
-    torch.save(model.state_dict(), "homer_{}_{}-{}.model".format(epoch, train_acc, test_acc))
+    torch.save(model.state_dict(), "tipper_{}_{}-{}.model".format(epoch, train_acc, test_acc))
     print("Model saved.")
 
 

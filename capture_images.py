@@ -30,6 +30,10 @@ ret, img2 = cap.read()
 img = np.concatenate((img1, img2), axis=0)
 cv2.imwrite("img/pitch_{}.jpg".format(pitch_number), img)
 
+# Save the original images in case the approach needs to change later.
+cv2.imwrite("img/original/pitch_{}_1.jpg".format(pitch_number), img1)
+cv2.imwrite("img/original/pitch_{}_2.jpg".format(pitch_number), img2)
+
 GPIO.output(solenoid_pin, GPIO.LOW)
 GPIO.cleanup()
 
