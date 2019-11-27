@@ -35,7 +35,6 @@ cv2.imwrite("img/original/pitch_{}_1.jpg".format(pitch_number), img1)
 cv2.imwrite("img/original/pitch_{}_2.jpg".format(pitch_number), img2)
 
 GPIO.output(solenoid_pin, GPIO.LOW)
-GPIO.cleanup()
 
 pitch_number += 1
 open("image_count.txt", "w").write(str(pitch_number))
