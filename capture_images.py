@@ -1,4 +1,5 @@
 import RPi.GPIO as GPIO
+import numpy as np
 import cv2
 import sys
 import time
@@ -25,8 +26,11 @@ time.sleep(5)
 print("Throwing pitch...")
 GPIO.output(solenoid_pin, GPIO.HIGH)
 
+time.sleep(0.220)
 ret, img1 = cap.read()
+time.sleep(0.005)
 ret, img2 = cap.read()
+
 img = np.concatenate((img1, img2), axis=0)
 cv2.imwrite("img/pitch_{}.jpg".format(pitch_number), img)
 
@@ -38,3 +42,4 @@ GPIO.output(solenoid_pin, GPIO.LOW)
 
 pitch_number += 1
 open("image_count.txt", "w").write(str(pitch_number))
+
