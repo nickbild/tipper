@@ -15,6 +15,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(solenoid_pin, GPIO.OUT, initial=GPIO.LOW)
 
 cap = cv2.VideoCapture(0)
+cap.set(cv2.CAP_PROP_FOURCC, 0x47504A4D) # MJPG codec.
 cap.set(3, 640)
 cap.set(4, 480)
 
