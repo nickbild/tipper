@@ -17,8 +17,12 @@ trained_model = "tipper_10_1.0-1.0.model"
 num_classes = 2
 
 solenoid_pin = 23 # Pin #16
+green_led_pin = 25 # Pin 22.
+red_led_pin = 8 # Pin 24.
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(solenoid_pin, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(green_led_pin, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(red_led_pin, GPIO.OUT, initial=GPIO.LOW)
 
 
 # Load the saved model.
@@ -67,12 +71,12 @@ def main():
     ret, img1 = cap.read()
     time.sleep(5)
 
-    import datetime
+    #import datetime
 
     print("Throwing pitch...")
     GPIO.output(solenoid_pin, GPIO.HIGH)
 
-    print(datetime.datetime.now())
+    #print(datetime.datetime.now())
 
     time.sleep(0.140)
     ret, img1 = cap.read()
@@ -80,16 +84,20 @@ def main():
     ret, img2 = cap.read()
     img3 = np.concatenate((img1, img2), axis=0)
 
-    print(datetime.datetime.now())
+    #print(datetime.datetime.now())
 
     index, score = predict_image_class(img3)
 
-    print(datetime.datetime.now())
-    
+    # Light up indicator LED.
+    if index == 1:
+        GPIO.output(green_led_pin, GPIO.HIGH)
+    else:
+        GPIO.output(red_led_pin, GPIO.HIGH)
+
+    #print(datetime.datetime.now())
+
     print("Class: ", index)
     print("Score: ", score)
-
-    # TODO: Light LED based on class/score for several seconds.  R unless sufficient strike score.
 
     cap.stop()
     GPIO.output(solenoid_pin, GPIO.LOW)
