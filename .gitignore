@@ -3,4 +3,4 @@ __pycache__/
 image_count.txt
 img/
 data/
-homer_*.model
+tipper_*.model

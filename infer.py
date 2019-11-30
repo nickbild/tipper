@@ -13,7 +13,7 @@ import videocaptureasync as vc
 
 img_width = 640
 img_height = 960
-trained_model = "homer_0_2-1.model"
+trained_model = "tipper_10_1.0-1.0.model"
 num_classes = 2
 
 solenoid_pin = 23 # Pin #16

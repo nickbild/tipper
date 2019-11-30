@@ -16,45 +16,33 @@ class Net(nn.Module):
     def __init__(self, num_classes=class_count):
         super(Net, self).__init__()
 
-        self.conv1 = nn.Conv2d(in_channels=3, out_channels=24, kernel_size=3, stride=2, padding=1)
+        self.conv1 = nn.Conv2d(in_channels=3, out_channels=16, kernel_size=3, stride=2, padding=1)
         self.relu1 = nn.ReLU()
 
         self.pool1 = nn.MaxPool2d(kernel_size=2)
 
-        self.conv2 = nn.Conv2d(in_channels=24, out_channels=24, kernel_size=3, stride=1, padding=1)
+        self.conv2 = nn.Conv2d(in_channels=16, out_channels=16, kernel_size=3, stride=1, padding=1)
         self.relu2 = nn.ReLU()
-
-        self.conv3 = nn.Conv2d(in_channels=24, out_channels=24, kernel_size=3, stride=1, padding=1)
-        self.relu3 = nn.ReLU()
-
-        self.conv4 = nn.Conv2d(in_channels=24, out_channels=24, kernel_size=3, stride=1, padding=1)
-        self.relu4 = nn.ReLU()
 
         self.pool2 = nn.MaxPool2d(kernel_size=2)
 
         self.dropout1 = nn.Dropout(0.3)
 
-        self.conv5 = nn.Conv2d(in_channels=24, out_channels=24, kernel_size=3, stride=1, padding=1)
+        self.conv5 = nn.Conv2d(in_channels=16, out_channels=16, kernel_size=3, stride=1, padding=1)
         self.relu5 = nn.ReLU()
 
-        self.conv6 = nn.Conv2d(in_channels=24, out_channels=24, kernel_size=3, stride=1, padding=1)
+        self.conv6 = nn.Conv2d(in_channels=16, out_channels=16, kernel_size=3, stride=1, padding=1)
         self.relu6 = nn.ReLU()
-
-        self.conv7 = nn.Conv2d(in_channels=24, out_channels=24, kernel_size=3, stride=1, padding=1)
-        self.relu7 = nn.ReLU()
-
-        self.conv8 = nn.Conv2d(in_channels=24, out_channels=24, kernel_size=3, stride=1, padding=1)
-        self.relu8 = nn.ReLU()
 
         self.pool3 = nn.MaxPool2d(kernel_size=2)
 
-        # 24 * (640/2/2/2/2) * (960/2/2/2/2)
-        self.fc1 = nn.Linear(in_features=24*40*60, out_features=128)
+        # 16 * (640/2/2/2/2) * (960/2/2/2/2)
+        self.fc1 = nn.Linear(in_features=16*40*60, out_features=64)
         self.relu9 = nn.ReLU()
 
         self.dropout2 = nn.Dropout(0.3)
 
-        self.fc2= nn.Linear(in_features=128, out_features=num_classes)
+        self.fc2= nn.Linear(in_features=64, out_features=num_classes)
 
     def forward(self, input):
         output = self.conv1(input)
@@ -64,12 +52,6 @@ class Net(nn.Module):
 
         output = self.conv2(output)
         output = self.relu2(output)
-
-        utput = self.conv3(output)
-        output = self.relu3(output)
-
-        utput = self.conv4(output)
-        output = self.relu4(output)
 
         output = self.pool2(output)
 
@@ -81,15 +63,9 @@ class Net(nn.Module):
         output = self.conv6(output)
         output = self.relu6(output)
 
-        output = self.conv7(output)
-        output = self.relu7(output)
-
-        output = self.conv8(output)
-        output = self.relu8(output)
-
         output = self.pool3(output)
 
-        output = output.view(-1, 24*40*60)
+        output = output.view(-1, 16*40*60)
 
         output = self.fc1(output)
         output = self.relu9(output)
@@ -249,3 +225,4 @@ if __name__ == "__main__":
 
     print("Starting training.")
     train(5000)
+
