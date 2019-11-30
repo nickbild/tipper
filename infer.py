@@ -8,6 +8,7 @@ from PIL import Image
 from train import Net
 import cv2
 import time
+import videocaptureasync as vc
 
 
 img_width = 640
@@ -54,36 +55,47 @@ def predict_image_class(image):
 
 
 def main():
-    cap = cv2.VideoCapture(0)
-    cap.set(3, 640)
-    cap.set(4, 480)
+    cap = vc.VideoCaptureAsync()
+    cap.start()
+
+    # Get model resident in memory.
+    img_warm_up = cv2.imread("warm_up.jpg")
+    index, score = predict_image_class(img_warm_up)
+
     # Warm up camera.
     print("5 seconds...")
     ret, img1 = cap.read()
     time.sleep(5)
 
-    if cap.isOpened():
-        print("Throwing pitch...")
-        GPIO.output(solenoid_pin, GPIO.HIGH)
+    import datetime
 
-        ret, img1 = cap.read()
-        ret, img2 = cap.read()
-        img = np.concatenate((img1, img2), axis=0)
-        #cv2.imwrite("img/pitch_{}.jpg".format(pitch_number), img)
+    print("Throwing pitch...")
+    GPIO.output(solenoid_pin, GPIO.HIGH)
 
-        index, score = predict_image_class(img)
+    print(datetime.datetime.now())
 
-        print("Class: ", index)
-        print("Score: ", score)
+    time.sleep(0.140)
+    ret, img1 = cap.read()
+    time.sleep(0.020)
+    ret, img2 = cap.read()
+    img3 = np.concatenate((img1, img2), axis=0)
 
-        # TODO: Light LED based on class/score for several seconds.  R unless sufficient strike score.
+    print(datetime.datetime.now())
 
-        cap.release()
-        GPIO.output(solenoid_pin, GPIO.LOW)
-        GPIO.cleanup()
-    else:
-        print('Unable to open camera.')
+    index, score = predict_image_class(img3)
+
+    print(datetime.datetime.now())
+    
+    print("Class: ", index)
+    print("Score: ", score)
+
+    # TODO: Light LED based on class/score for several seconds.  R unless sufficient strike score.
+
+    cap.stop()
+    GPIO.output(solenoid_pin, GPIO.LOW)
+    GPIO.cleanup()
 
 
 if __name__ == "__main__":
     main()
+
