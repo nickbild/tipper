@@ -101,7 +101,6 @@ def main():
 
     cap.stop()
     GPIO.output(solenoid_pin, GPIO.LOW)
-    GPIO.cleanup()
 
 
 if __name__ == "__main__":
