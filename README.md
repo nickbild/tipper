@@ -17,19 +17,19 @@ Higher resolution video in [Media](https://github.com/nickbild/tipper#media) sec
 See it in action: [YouTube](https://www.youtube.com/watch?v=dkE9XCBSyhw)
 
 The ball launcher:
-![launcher](https://raw.githubusercontent.com/nickbild/tipper/master/img/launcher_sm.jpg)
+![launcher](https://raw.githubusercontent.com/nickbild/tipper/master/media/launcher_sm.jpg)
 
 Looking down the barrel:
-![launcher barrel](https://raw.githubusercontent.com/nickbild/tipper/master/img/launcher_barrel_sm.jpg)
+![launcher barrel](https://raw.githubusercontent.com/nickbild/tipper/master/media/launcher_barrel_sm.jpg)
 
 The processing:
-![launcher](https://raw.githubusercontent.com/nickbild/tipper/master/img/xavier_sm.jpg)
+![launcher](https://raw.githubusercontent.com/nickbild/tipper/master/media/xavier_sm.jpg)
 
 Camera:
-![launcher](https://raw.githubusercontent.com/nickbild/tipper/master/img/camera_sm.jpg)
+![launcher](https://raw.githubusercontent.com/nickbild/tipper/master/media/camera_sm.jpg)
 
 The glasses:
-![launcher](https://raw.githubusercontent.com/nickbild/tipper/master/img/glasses_sm.jpg)
+![launcher](https://raw.githubusercontent.com/nickbild/tipper/master/media/glasses_sm.jpg)
 
 ## Software
 
