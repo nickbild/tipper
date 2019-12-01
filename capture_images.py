@@ -26,7 +26,7 @@ time.sleep(5)
 print("Throwing pitch...")
 GPIO.output(solenoid_pin, GPIO.HIGH)
 
-time.sleep(0.140)
+time.sleep(0.040)
 ret, img1 = cap.read()
 time.sleep(0.020)
 ret, img2 = cap.read()
@@ -43,4 +43,3 @@ cap.stop()
 
 pitch_number += 1
 open("image_count.txt", "w").write(str(pitch_number))
-

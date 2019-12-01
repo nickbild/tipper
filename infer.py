@@ -13,7 +13,7 @@ import videocaptureasync as vc
 
 img_width = 640
 img_height = 960
-trained_model = "tipper_10_1.0-1.0.model"
+trained_model = "tipper_final.model"
 num_classes = 2
 
 solenoid_pin = 23 # Pin #16
@@ -71,20 +71,14 @@ def main():
     ret, img1 = cap.read()
     time.sleep(5)
 
-    #import datetime
-
     print("Throwing pitch...")
     GPIO.output(solenoid_pin, GPIO.HIGH)
 
-    #print(datetime.datetime.now())
-
-    time.sleep(0.140)
+    time.sleep(0.040)
     ret, img1 = cap.read()
     time.sleep(0.020)
     ret, img2 = cap.read()
     img3 = np.concatenate((img1, img2), axis=0)
-
-    #print(datetime.datetime.now())
 
     index, score = predict_image_class(img3)
 
@@ -93,8 +87,6 @@ def main():
         GPIO.output(green_led_pin, GPIO.HIGH)
     else:
         GPIO.output(red_led_pin, GPIO.HIGH)
-
-    #print(datetime.datetime.now())
 
     print("Class: ", index)
     print("Score: ", score)
@@ -105,4 +97,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
