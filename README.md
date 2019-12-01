@@ -9,3 +9,9 @@ Tipper predicts if a pitch will be in or out of the strike zone in real time.  T
 </p>
 
 Higher resolution video in [Media](https://github.com/nickbild/tipper#media) section below.
+
+## How It Works
+
+## Media
+
+See it in action: [YouTube](https://www.youtube.com/watch?v=dkE9XCBSyhw)
