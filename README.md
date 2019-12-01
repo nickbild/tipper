@@ -16,6 +16,21 @@ Higher resolution video in [Media](https://github.com/nickbild/tipper#media) sec
 
 See it in action: [YouTube](https://www.youtube.com/watch?v=dkE9XCBSyhw)
 
+The ball launcher:
+![launcher](https://raw.githubusercontent.com/nickbild/tipper/master/img/launcher_sm.jpg)
+
+Looking down the barrel:
+![launcher barrel](https://raw.githubusercontent.com/nickbild/tipper/master/img/launcher_barrel_sm.jpg)
+
+The processing:
+![launcher](https://raw.githubusercontent.com/nickbild/tipper/master/img/xavier_sm.jpg)
+
+Camera:
+![launcher](https://raw.githubusercontent.com/nickbild/tipper/master/img/camera_sm.jpg)
+
+The glasses:
+![launcher](https://raw.githubusercontent.com/nickbild/tipper/master/img/glasses_sm.jpg)
+
 ## Software
 
 ## Bill of Materials
@@ -30,7 +45,7 @@ See it in action: [YouTube](https://www.youtube.com/watch?v=dkE9XCBSyhw)
 - 2 x Breadboard
 - Glasses / sunglasses
 - Miscellaneous copper wire
-- Plywood, miscellaneous wood screws, wooden dowels
+- Plywood, miscellaneous wood screws, wooden dowels, rubber bands, hot glue
 
 ## Future Direction
 
