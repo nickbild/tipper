@@ -15,3 +15,17 @@ Higher resolution video in [Media](https://github.com/nickbild/tipper#media) sec
 ## Media
 
 See it in action: [YouTube](https://www.youtube.com/watch?v=dkE9XCBSyhw)
+
+## Software
+
+## Bill of Materials
+
+- NVIDIA Jetson AGX Xavier
+- USB Webcam with minimum 100FPS @ 640x480
+- Breadboard
+- Glasses / sunglasses
+- Miscellaneous copper wire
+
+## About the Author
+
+[Nick A. Bild, MS](https://nickbild79.firebaseapp.com/#!/)
