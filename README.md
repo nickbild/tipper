@@ -22,9 +22,17 @@ See it in action: [YouTube](https://www.youtube.com/watch?v=dkE9XCBSyhw)
 
 - NVIDIA Jetson AGX Xavier
 - USB Webcam with minimum 100FPS @ 640x480
-- Breadboard
+- 3V-5V logic level shifter
+- Red and green LEDs
+- Power MOSFET
+- 45N or greater solenoid
+- Nerf dog tennis ball launcher
+- 2 x Breadboard
 - Glasses / sunglasses
 - Miscellaneous copper wire
+- Plywood, miscellaneous wood screws, wooden dowels
+
+## Future Direction
 
 ## About the Author
 
