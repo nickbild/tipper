@@ -48,9 +48,9 @@ data/
     test/
         ball/
         strike/
-      train/
-          ball/
-          strike/
+    train/
+        ball/
+        strike/
 ```
 
 Training can then be started with the command:
