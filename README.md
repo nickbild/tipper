@@ -1,6 +1,6 @@
 # Tipper
 
-Tipper predicts if a pitch will be in or out of the strike zone in real time.  The batter will see a green or red light illuminate in their field of vision if the pitch will be in or out of the strike zone, respectively.
+Tipper predicts if a pitch will be in or out of the strike zone in real time.  The batter will see a green or red light illuminate in their peripheral vision if the pitch will be in or out of the strike zone, respectively.
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/nickbild/tipper/master/media/video.gif">
@@ -38,11 +38,11 @@ The glasses:
 ## Bill of Materials
 
 - NVIDIA Jetson AGX Xavier
-- USB Webcam with minimum 100FPS @ 640x480
+- USB camera with minimum 100FPS @ 640x480
 - 3V-5V logic level shifter
 - Red and green LEDs
 - Power MOSFET
-- 45N or greater solenoid
+- 45 Newton or greater solenoid
 - Nerf dog tennis ball launcher
 - 2 x Breadboard
 - Glasses / sunglasses
