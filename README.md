@@ -35,6 +35,34 @@ The glasses:
 
 ## Software
 
+### Training
+
+[A CNN was built](https://github.com/nickbild/tipper/blob/master/train.py) using PyTorch.  The model was kept as small as possible as inference times on the order of tens of milliseconds are required.
+
+Collection of training data was automated with [capture_images.py](https://github.com/nickbild/tipper/blob/master/capture_images.py).
+
+Data should be structured as:
+
+```
+data/
+    test/
+        ball/
+        strike/
+      train/
+          ball/
+          strike/
+```
+
+Training can then be started with the command:
+
+```
+python3 train.py
+```
+
+### Inference
+
+The [inference script](https://github.com/nickbild/tipper/blob/master/infer.py) pitches a ball and captures images of it in flight.  The image is classified against the CNN model, and based on the result, a green or red LED is lit on a pair of glasses worn by the batter.
+
 ## Bill of Materials
 
 - NVIDIA Jetson AGX Xavier
