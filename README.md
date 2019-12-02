@@ -63,6 +63,12 @@ python3 train.py
 
 The [inference script](https://github.com/nickbild/tipper/blob/master/infer.py) pitches a ball and captures images of it in flight.  The image is classified against the CNN model, and based on the result, a green or red LED is lit on a pair of glasses worn by the batter.
 
+To run it, cock and load the ball launcher.  Then run:
+
+```
+python3 infer.py
+```
+
 ## Bill of Materials
 
 - NVIDIA Jetson AGX Xavier
