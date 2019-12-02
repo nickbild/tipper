@@ -85,6 +85,12 @@ python3 infer.py
 
 ## Future Direction
 
+To move this beyond prototype, I'd like to run it on faster hardware.  This would allow me to run a deeper model, which can identify more subtle features to better classify a wider range of pictures.  This would also allow me to feed higher resolution images into the model, which could then factor in features like the spin of the ball that are not possible at the 640x480 resolution I need to use to keep processing time fast enough with my current setup.
+
+I would also like to experiment with other methods of reality augmentation.  For example, instead of lighting up an LED, a ball in the strike zone could trigger a vibration in the right shoe, and out of the strike zone could trigger a vibration in the left shoe.
+
+I'd also like to experiment with predicting more specific outcomes, e.g. low and away, high and tight.  I imagine several LEDs in various locations around the glasses to give a quickly interpretable signal to the wearer.
+
 ## About the Author
 
 [Nick A. Bild, MS](https://nickbild79.firebaseapp.com/#!/)
