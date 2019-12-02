@@ -81,7 +81,7 @@ python3 infer.py
 - 2 x Breadboard
 - Glasses / sunglasses
 - Miscellaneous copper wire
-- Plywood, miscellaneous wood screws, wooden dowels, rubber bands, hot glue
+- Plywood, miscellaneous wood screws, wooden dowels, rubber bands, velcro, hot glue
 
 ## Future Direction
 
