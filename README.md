@@ -33,6 +33,12 @@ Camera:
 The glasses:
 ![launcher](https://raw.githubusercontent.com/nickbild/tipper/master/media/glasses_sm.jpg)
 
+## Use Cases
+
+I see the main use case as a training aid for batters, to help them recognize a good pitch as early as possible.  With some tweaks, it could also be trained to watch the pitcher rather than the ball.  In this way, Tipper could be used to alert pitchers if they are inadvertently tipping the batter with body language.
+
+There's also a white elephant in the room -- it could be used by a batter covertly during a game to gain an unfair advantage.  After having built this by myself in a few weeks time, with a very small budget, I can't help but wonder if a similar device already exists and is in use.  A tiny pinhole camera somewhere in the ballpark pointed at the pitcher's mound and a buzzer fully embedded in the sole of a shoe is all that would be needed.
+
 ## Software
 
 ### Training
